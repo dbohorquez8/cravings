@@ -67,6 +67,8 @@
   }
 
   .custom-input__label {
+    @include rem(14px);
+    
     @include media-query(lap-and-up) {
       @include rem(18px);
     }

@@ -5,7 +5,7 @@ html {
 }
 
 body  {
-  @include rem(14px);
+  @include rem(18px);
   color: $text-default;
   font-family: $base-font-family;
   font-weight: 300;
