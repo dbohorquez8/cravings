@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   validates_associated :choices
 
   def as_json(options={})
-    name#{:name => name, :picture => picture_url}
+    {:name => name, :picture => picture_url}
   end
 
 end

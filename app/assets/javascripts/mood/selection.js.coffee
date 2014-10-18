@@ -9,15 +9,18 @@ Cravings.Mood.Selection =
     selection = $(this).find('.js-choice-name').html()
     Cravings.Mood.Selection.selections.push(selection) if selection
     console.log Cravings.Mood.Selection.selections
-    Cravings.Mood.Selection.displayChoices()
+    if Cravings.Mood.Selection.selections.length >= 3
+      Cravings.Mood.Selection.suggest()
+    else
+      Cravings.Mood.Selection.displayChoices()
 
   setEvents: ->
     $('.js-choice').on('click', @select)
 
   displayChoices: ->
     if Cravings.Mood.Tags.length >= 2
-      $('#js-left-choice').html(Cravings.Mood.Tags.pop())
-      $('#js-right-choice').html(Cravings.Mood.Tags.pop())
+      $('#js-left-choice').html(Cravings.Mood.Tags.pop().name)
+      $('#js-right-choice').html(Cravings.Mood.Tags.pop().name)
     else
       @getTags()
 
@@ -28,11 +31,22 @@ Cravings.Mood.Selection =
       dataType: "json"
 
       success: (data) ->
-        Cravings.Mood.Tags = data
-        Cravings.Mood.Selection.displayChoices()
+        if data == []
+          Cravings.Mood.Selection.suggest()
+        else
+          Cravings.Mood.Tags = data
+          console.log data
+          Cravings.Mood.Selection.displayChoices()
         return
       error: (data) ->
         console.log 1
+
+  suggest: ->
+    form = $('<form action="/mood/suggestion"></form>')
+    $.each Cravings.Mood.Selection.selections, (i, obj)=>
+      form.append('<input type="hidden" name="selections[]" value="'+obj+'" />')
+    $('body').append(form)
+    form.submit();
 
 $ ->
   Cravings.Mood.Selection.init()
