@@ -1,1 +1,0 @@
-Cravings.Mood = Cravings.Mood || {}

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 
-var Cravings = {};
+var Cravings = {
+  Mood: {}
+};

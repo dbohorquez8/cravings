@@ -1,4 +1,5 @@
 $choice-size: 80px;
+$choice-size-desktop: 120px;
 
 .choices-container {
   margin-bottom: $base-spacing-unit * 2;
@@ -35,6 +36,10 @@ $choice-size: 80px;
 
 .choice__icon {
   @include rem($choice-size);
+
+  @include media-query(lap-and-up) {
+    @include rem($choice-size-desktop);
+  }
 }
 
 .choice__icon,
@@ -44,6 +49,10 @@ $choice-size: 80px;
 
 .choice__name {
   @extend .gamma;
+
+  @include media-query(lap-and-up) {
+    @include rem($choice-size-desktop / 4);
+  }
 }
 
 .choices__divider {
@@ -61,6 +70,11 @@ $choice-size: 80px;
   right: 0;
   top: 0;
   width: $choice-size / 4;
+
+  @include media-query(lap-and-up) {
+    height: $choice-size-desktop / 4;
+    width: $choice-size-desktop / 4;
+  }
 }
 
 .choices__neither {
@@ -72,5 +86,9 @@ $choice-size: 80px;
 
   &:hover, &:active {
     background: $gray-lighter;
+  }
+
+  @include media-query(lap-and-up) {
+    @include rem($choice-size-desktop / 4);
   }
 }
