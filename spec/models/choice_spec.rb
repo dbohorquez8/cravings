@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Choice, :type => :model do
+RSpec.describe Choice do
   it "is succesfully created" do
     expect(create(:choice)).to be_valid
   end

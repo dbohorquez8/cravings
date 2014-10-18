@@ -1,7 +1,13 @@
 class Mood::TagsController < ApplicationController
 
   def index
-    @tags = Tag.all.sample(10)
+    @tags = Mood.next_tags(session[:tags])
+    session[:tags] = @tags.to_json.concat(session[:tags].to_a).to_json
+
+    respond_to do |format|
+      format.html
+      format.js { render json: @tags.to_json, layout: false }
+    end
   end
 
 end

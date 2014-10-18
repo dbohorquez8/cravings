@@ -4,4 +4,5 @@ class Tag < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates_associated :choices
+
 end
