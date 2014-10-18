@@ -5,7 +5,7 @@
   %h1.heading--jumbo Are you in the mood for...
 
   .choices-container--suggestion
-    %button.choice--suggestion
+    %button.choice--suggestion.js-select-choice
       .suggestion__image
         = image_tag "suggestions/pizza.jpg", alt: "Pizza"
         .suggestion__name
@@ -13,13 +13,16 @@
 
   .grid--rev.grid--full.push-double--bottom
     .grid__item.one-whole.lap-and-up-one-half>
-      %button.suggestion__text Yup! I'm eating this 
+      %button.suggestion__text.js-select-choice Yup! I'm eating this 
 
-    .grid__item.one-whole.lap-and-up-one-half>
+    .grid__item.one-whole.lap-and-up-one-half.js-other-choice>
       %button.choices__neither Nah... What else you got?
 
   .text--center
     = link_to "I've already decided what I'm eating!", "", class: "text--skip"
     
 - content_for :javascript do
-  /**/
+  :javascript
+    Cravings.Mood.Selections = #{@selections.to_json};
+
+  = javascript_include_tag "mood/suggestion"

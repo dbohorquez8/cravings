@@ -12,4 +12,4 @@ Rails.application.config.assets.precompile  += %w( modernizr.js )
 Rails.application.config.assets.precompile  += %w( underscore.js )
 
 # App
-Rails.application.config.assets.precompile  += %w( modernizr.js mood/selection.js )
+Rails.application.config.assets.precompile  += %w( modernizr.js mood/selection.js mood/suggestion.js )
