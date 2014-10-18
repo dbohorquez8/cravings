@@ -1,6 +1,7 @@
 print "Deleting existing Tags and Choices..."
 Tag.delete_all
 Choice.delete_all
+Tagging.delete_all
 puts "Done."
 
 print "Creating Tags..."
@@ -65,8 +66,8 @@ common_choices = { "fried chicken" => %w[poultry fast-foods fried honey],
                    "chicken marsala" => %w[poultry grilled flour italian],
                    "meatloaf" => %w[meats baked dressings pork smoked],
                    "spaghetti and meatballs" => %w[italian pasta meats cheese],
-                   "hot dog" => %w[american fast-food breads snacks grilled steamed sausage],
-                   "hamburger" => %w[fast-food meats grilled snacks breads toppings cheese],
+                   "hot dog" => %w[american fast-foods breads snacks grilled steamed sausage],
+                   "hamburger" => %w[fast-foods meats grilled snacks breads toppings cheese],
                    "bbq ribs" => %w[meats pork grilled baked toppings],
                    "roast beef" => %w[meats roasted breads],
                    "roasted chicken" => %w[poultry roasted snacks grilled toppings],
@@ -75,21 +76,21 @@ common_choices = { "fried chicken" => %w[poultry fast-foods fried honey],
                    "tacos" => %w[mexican fast-foods meats poultry pork salad],
                    "quesadillas" => %w[mexican fast-foods cheese grilled],
                    "burrito" => %w[mexican fast-foods cheese rice grains],
-                   "pizza" => %w[italian fast-food cheese baked dressings],
+                   "pizza" => %w[italian fast-foods cheese baked dressings],
                    "lasagna" => %w[italian cheese meats poultry baked],
                    "seafood" => %w[seafood condiments snacks crackers],
                    "lime pie" => %w[pastries candy snacks desserts],
                    "ice cream" => %w[candy pastries snacks desserts ice],
                    "cobb salad" => %w[vegetables salads toppings],
                    "twinkies" => %w[desserts candy snacks],
-                   "jerky" => %w[fast-food meats snacks roasted smoked],
-                   "fajitas" => %w[mexican poultry meats vegetables salads fast-food],
+                   "jerky" => %w[fast-foods meats snacks roasted smoked],
+                   "fajitas" => %w[mexican poultry meats vegetables salads fast-foods],
                    "banana split" => %w[desserts candy snacks ice],
                    "raisins and peanuts" => %w[snacks candy],
-                   "chicken fried steak" => %w[poultry fast-food snacks fried],
-                   "sushi" => %w[asian seafood snacks fast-food],
+                   "chicken fried steak" => %w[poultry fast-foods snacks fried],
+                   "sushi" => %w[asian seafood snacks fast-foods],
                    "mac and cheese" => %w[italian american pasta cheese],
-                   "sandwich" => %w[fast-food breads meats poultry smoked snacks grilled roasted],
+                   "sandwich" => %w[fast-foods breads meats poultry smoked snacks grilled roasted],
                    "chocolate-chip cookies" => %w[candy desserts snacks],
                    "nachos" => %w[snacks cheese mexican],
                    "philly cheese steak" => %w[cheese meats american breads],
@@ -105,8 +106,11 @@ common_choices = { "fried chicken" => %w[poultry fast-foods fried honey],
 
 
 common_choices.each do |name, tag_names|
-  choice = Choice.new(name: name)
-  choice.tags << Tag.where(name: tag_names)
-  choice.save
+  choice = Choice.create!(name: name)
+
+  tags = Tag.where(name: tag_names)
+
+  choice.tags << tags
+
 end
 puts "Done."
