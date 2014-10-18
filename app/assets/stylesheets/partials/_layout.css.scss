@@ -1,0 +1,28 @@
+.wrapper{
+  @extend .cf;
+  margin: auto;
+  padding: 0 $wrapper-gutter;
+  max-width: $wrapper-width;
+}
+
+.main-header {
+  background: $brand-primary;
+  padding: $base-spacing-unit;
+}
+
+.main-logo {
+  @extend .kilo;
+  color: white;
+  font-family: $headings-font-family;
+  letter-spacing: -0.03em;
+  text-align: center;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.main-content {
+  padding: $base-spacing-unit 0;
+}

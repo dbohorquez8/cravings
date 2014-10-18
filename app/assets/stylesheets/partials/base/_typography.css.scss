@@ -1,0 +1,95 @@
+/* Define your base font-size here; most elements will inherit this. */
+html {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+body  {
+  @include rem(14px);
+  color: $text-default;
+  font-family: $base-font-family;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+a {
+  color: $link-default;
+}
+
+/* Common margin-bottom for vertical rhythm. */
+h1, h2, h3, h4, h5, h6, 
+ul, ol, dl, 
+fieldset, 
+p, 
+table, 
+pre, 
+hr {
+  line-height: 1.4;
+}
+
+/* These handle massive type, for less frequently occuring bits of text (e.g. in mastheads and banners). */
+.giga {
+  @include rem(80px);
+  line-height: 1.2;    /* 96px */
+}
+.mega {
+  @include rem(64px);
+  line-height: 1.125;  /* 72px */
+}
+.kilo {
+  @include rem(48px);
+  line-height: 1;      /* 48px */
+}
+
+/* Define headings and their associated classes here. */
+h1, .alpha {
+  @include rem(32px);
+}
+h2, .beta {
+  @include rem(24px);    /* 24px */
+}
+h3, .gamma {
+  @include rem(20px);
+}
+h4, .delta {
+  @include rem(18px);
+}
+h5, .epsilon {
+  @include rem(16px);
+}
+h6, .zeta {
+  @include rem(14px);
+}
+
+/* Smaller-than-body-copy sizes here. */
+small, .milli {
+  @include rem(12px);
+}
+
+.micro {
+  @include rem(10px);
+}
+
+.section-title {
+  @include rem(12px);
+  margin-bottom: $quarter-spacing-unit;
+  text-transform: uppercase;
+
+  @include media-query(lap-and-up) {
+    @include rem(18px);
+    margin-bottom: $half-spacing-unit;
+    text-transform: none;
+  }
+}
+
+.heading--jumbo {
+  @extend .beta;
+  font-family: $headings-font-family;
+  margin-bottom: 1em;
+  text-align: center;
+}

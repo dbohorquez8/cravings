@@ -214,6 +214,7 @@ DEPENDENCIES
   bourbon
   capybara
   coffee-rails (~> 4.0.0)
+  compass
   compass-rails
   database_cleaner
   devise

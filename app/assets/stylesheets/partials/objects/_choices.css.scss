@@ -1,0 +1,51 @@
+$choice-size: 80px;
+
+.choices-container {
+  @extend .cf;
+  position: relative;
+  text-align: center;
+}
+
+.choice {
+  background: $brand-primary;
+  border: 2px solid white;
+  color: white;
+  display: block;
+  float: left;
+  padding: $base-spacing-unit;
+  width: 50%;
+
+  &:first-child {
+    background: $orange;
+  }
+
+  &:last-child {
+    background: $purple;
+  }
+}
+
+.choice__icon {
+  @include rem($choice-size);
+}
+
+.choice__icon,
+.choice__name {
+  display: block;
+}
+
+.choices__divider {
+  @extend .heading--jumbo;
+  background: white;
+  border-radius: 50%;
+  bottom: 0;
+  display: block;
+  height: $choice-size / 4;
+  left: 0;
+  line-height: 0.7;
+  margin: auto;
+  padding: $half-spacing-unit;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $choice-size / 4;
+}

@@ -1,0 +1,19 @@
+.text-input{
+  @if $global-border-box == false{
+    @include box-sizing(border-box);
+  }
+
+  border: 1px solid $border-color-default;
+  border-radius: $border-radius-default;
+  padding: $quarter-spacing-unit $half-spacing-unit;
+}
+
+.form-field{
+  @extend %margin-bottom;
+}
+
+.label{
+  cursor: pointer;
+  display: block;
+  @extend %margin-bottom;
+}

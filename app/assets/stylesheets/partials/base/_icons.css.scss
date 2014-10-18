@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Cravings Iconset';
+  src:url('/assets/cravings.eot?-a1juhg');
+  src:url('/assets/cravings.eot?#iefix-a1juhg') format('embedded-opentype'),
+    url('/assets/cravings.woff?-a1juhg') format('woff'),
+    url('/assets/cravings.ttf?-a1juhg') format('truetype'),
+    url('/assets/cravings.svg?-a1juhg#cravings') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  font-family: 'Cravings Iconset';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--burger:before {
+  content: "\e600";
+}
+.icon--pizza:before {
+  content: "\e601";
+}

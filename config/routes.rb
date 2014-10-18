@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :meals, :only => [:new]
-
+  
+  get "main" => "pages#index"
 end

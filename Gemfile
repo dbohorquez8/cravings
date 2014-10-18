@@ -11,8 +11,9 @@ gem 'spring',        group: :development
 gem 'haml'
 gem 'devise'
 
-group :assets do
+group :assets, :development do
   gem 'sass-rails', '~> 4.0.3'
+  gem 'compass'
   gem 'compass-rails'
   gem 'bourbon'
   gem 'coffee-rails', '~> 4.0.0'

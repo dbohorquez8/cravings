@@ -1,0 +1,19 @@
+- content_for :title do
+  Cravings
+
+.wrapper
+  %h1.heading--jumbo Are you in the mood for...
+
+  .choices-container.push--bottom
+    %button.choice
+      %span.choice__icon
+        %i.icon{class: "icon--#{'pizza'}"}
+      %span.choice__name
+        = "Pizza"
+    .choices__divider>
+      or
+    %button.choice
+      %span.choice__icon
+        %i.icon{class: "icon--#{'burger'}"}
+      %span.choice__name
+        = "Burger"
