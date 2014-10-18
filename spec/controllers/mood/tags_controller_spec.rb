@@ -24,4 +24,13 @@ RSpec.describe Mood::TagsController, :type => :controller do
       expect(assigns(:tags).count).to be_equal 10
     end
   end
+
+  describe "XHR #index" do
+
+    it "loads 10 tags" do
+      get :index
+      expect(assigns(:tags).count).to be_equal 10
+    end
+    
+  end
 end
