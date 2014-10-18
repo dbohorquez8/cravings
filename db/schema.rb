@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018044433) do
+ActiveRecord::Schema.define(version: 20141018044848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20141018044433) do
     t.string   "picture_url"
   end
 
+  add_index "choices", ["name"], name: "index_choices_on_name", using: :btree
+  add_index "choices", ["user_id"], name: "index_choices_on_user_id", using: :btree
+
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "choice_id"
@@ -31,11 +34,16 @@ ActiveRecord::Schema.define(version: 20141018044433) do
     t.datetime "updated_at"
   end
 
+  add_index "taggings", ["choice_id"], name: "index_taggings_on_choice_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
   create_table "tags", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture_url"
   end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", using: :btree
 
 end
