@@ -6,7 +6,7 @@ RSpec.describe Tagging, :type => :model do
     choice = create(:choice)
     expect(create(:tagging, tag: tag, choice: choice)).to be_valid
   end
-  
+
   it "is invalid without a tag" do
     choice = create(:choice)
     expect(build(:tagging, tag: nil, choice: choice)).not_to be_valid

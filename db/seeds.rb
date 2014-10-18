@@ -1,7 +1,46 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+tags = %w(
+  Fruits
+  Vegetables
+  Legumes
+  Salads
+  Eggs
+  Meats
+  Poultry
+  Seafoods
+  Grains
+  Flour
+  Rice
+  Pasta
+  Breads
+  Bagels
+  Rolls
+  Crackers
+  Cookies
+  Cheese
+  Cream
+  Ice
+  Cream
+  Yogurts
+  Fats
+  Condiments
+  Sauces
+  Dressings
+  Soup
+  Tofu
+  Snacks
+  Candy
+  Chocolate
+  Cakes
+  Muffins
+  Baking
+  Sugar
+  Honey
+  Syrups
+  Toppings
+  Desserts
+  Pastries
+  Fast-Foods
+)
+tags.each {|tag_name| Tag.create(:name => tag_name)}
+
+
