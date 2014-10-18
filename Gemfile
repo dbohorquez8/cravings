@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'haml'
 gem 'devise'
+gem 'underscore-rails'
 
 group :assets, :development do
   gem 'sass-rails', '~> 4.0.3'

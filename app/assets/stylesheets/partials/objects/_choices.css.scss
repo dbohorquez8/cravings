@@ -1,9 +1,13 @@
 $choice-size: 80px;
 
 .choices-container {
+  margin-bottom: $base-spacing-unit * 2;
+  text-align: center;
+}
+
+.choices {
   @extend .cf;
   position: relative;
-  text-align: center;
 }
 
 .choice {
@@ -13,14 +17,19 @@ $choice-size: 80px;
   display: block;
   float: left;
   padding: $base-spacing-unit;
+  transition: all 0.2s ease;
   width: 50%;
 
   &:first-child {
-    background: $orange;
+    background: $brand-secondary;
+
+    &:hover, &:active {
+      background: darken($brand-secondary, 10%);
+    }
   }
 
-  &:last-child {
-    background: $purple;
+  &:hover, &:active {
+    background: darken($brand-primary, 10%);
   }
 }
 
@@ -31,6 +40,10 @@ $choice-size: 80px;
 .choice__icon,
 .choice__name {
   display: block;
+}
+
+.choice__name {
+  @extend .gamma;
 }
 
 .choices__divider {
@@ -48,4 +61,16 @@ $choice-size: 80px;
   right: 0;
   top: 0;
   width: $choice-size / 4;
+}
+
+.choices__neither {
+  @include rem($choice-size / 4);
+  border: 2px solid white;
+  padding: $base-spacing-unit;
+  transition: all 0.2s ease;
+  width: 100%;
+
+  &:hover, &:active {
+    background: $gray-lighter;
+  }
 }

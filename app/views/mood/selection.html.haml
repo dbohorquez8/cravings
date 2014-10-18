@@ -1,4 +1,30 @@
-= content_for :javascript do
-  = javascript_include_tag "mood/selection"
+- content_for :title do
+  What are you in the mood to eat? - Cravings
+
+.wrapper
+  %h1.heading--jumbo Are you in the mood for...
+
+  .choices-container
+    .choices
+      %button.choice
+        %span.choice__icon
+          %i.icon{class: "icon--#{'pizza'}"}
+        %span.choice__name
+          = "Beverages"
+      .choices__divider>
+        or
+      %button.choice
+        %span.choice__icon
+          %i.icon{class: "icon--#{'burger'}"}
+        %span.choice__name
+          = "Vietnameese"
+    %button.choices__neither
+      Neither!
+
+  .text--center
+    = link_to "I've already decided what I'm eating!", "", class: "text--skip"
+    
+- content_for :javascript do
+  = javascript_include_tag "mood/tags/index"
   :javascript
     Cravings.Mood.Tags = #{@tags.to_json}
