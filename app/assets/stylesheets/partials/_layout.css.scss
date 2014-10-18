@@ -11,11 +11,15 @@
 }
 
 .main-logo {
-  @extend .kilo;
+  @include rem(32px);
   color: white;
   font-family: $headings-font-family;
   letter-spacing: -0.03em;
   text-align: center;
+
+  @include media-query(lap-and-up) {
+    @include rem(48px);
+  }
 
   a {
     color: inherit;

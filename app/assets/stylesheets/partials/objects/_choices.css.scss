@@ -11,7 +11,7 @@ $choice-size-desktop: 120px;
   margin: 0 auto $base-spacing-unit;
 
   @include media-query(lap-and-up) {
-    max-width: 400px;
+    max-width: 300px;
   }
 }
 
@@ -21,7 +21,7 @@ $choice-size-desktop: 120px;
 }
 
 .choice {
-  background: $brand-primary;
+  @extend .button--brand;
   border: 2px solid white;
   color: white;
   display: block;
@@ -31,15 +31,7 @@ $choice-size-desktop: 120px;
   width: 50%;
 
   &:first-child {
-    background: $brand-secondary;
-
-    &:hover, &:active {
-      background: darken($brand-secondary, 10%);
-    }
-  }
-
-  &:hover, &:active {
-    background: darken($brand-primary, 10%);
+    @extend .button--secondary;
   }
 }
 
@@ -89,7 +81,6 @@ $choice-size-desktop: 120px;
 
 .choices__neither {
   @include rem($choice-size / 4);
-  border: 2px solid white;
   padding: $base-spacing-unit;
   text-align: center;
   transition: all 0.2s ease;
@@ -101,6 +92,10 @@ $choice-size-desktop: 120px;
 
   @include media-query(lap-and-up) {
     @include rem($choice-size-desktop / 4);
+  }
+
+  &.has-border {
+    border: 2px solid white;
   }
 }
 
@@ -116,11 +111,10 @@ $choice-size-desktop: 120px;
 
 .suggestion__text {
   @extend .choices__neither;
-  background: $green;
+  @extend .button--primary;
   border: 0 none;
-  color: white;
 
-  &:hover {
-    background: lighten($green, 10%);
+  &:hover, &:active {
+    background: darken($brand-success, 10%);
   }
 }

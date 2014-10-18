@@ -1,22 +1,74 @@
 .option-input{
+  cursor: pointer;
 
   input,
   .option-input__label{ vertical-align: middle;}
 }
 
 .custom-input{
+  cursor: pointer;
 
   input{
     @include accessibility;
+
+    &:checked + .input-skin--choice {
+      position: relative;
+
+      &:before {
+        @extend .icon;
+        @include rem(32px);
+        background: white;
+        border-radius: 50%;
+        color: $brand-success;
+        content: "\e605";
+        display: inline-block;
+        padding: 2px;
+        position: absolute;
+        top: -10px;
+        right: -5px;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.custom-input__skin{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-input__label{
+  vertical-align: middle;
+}
+
+.input-skin--choice {
+  @extend .button--brand;
+  display: block;
+  padding: $base-spacing-unit;
+  text-align: center;
+  transition: background 0.2s ease;
+
+  &.input-choice--first {
+    @extend .button--secondary;
   }
 
-  .custom-input__skin{
-    display: inline-block;
-    margin-right: 5px;
-    vertical-align: middle;
+  &.input-choice--last {
+    @extend .button--highlight;
   }
 
-  .custom-input__label{
-    vertical-align: middle;
+  .icon {
+    @include rem(32px);
+    display: block;
+    margin-bottom: $half-spacing-unit;
+
+    @include media-query(lap-and-up) {
+      @include rem(48px);
+    }
+  }
+
+  .custom-input__label {
+    @include media-query(lap-and-up) {
+      @include rem(18px);
+    }
   }
 }

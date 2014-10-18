@@ -2,9 +2,9 @@
   @if $global-border-box == false{
     @include box-sizing(border-box);
   }
-
-  border: 1px solid $border-color-default;
-  border-radius: $border-radius-default;
+  border: 0 none;
+  border-bottom: 1px solid $border-color-default;
+  border-radius: 0;
   padding: $quarter-spacing-unit $half-spacing-unit;
 }
 
@@ -15,5 +15,12 @@
 .label{
   cursor: pointer;
   display: block;
-  @extend %margin-bottom;
+  font-weight: 700;
+  margin-bottom: $half-spacing-unit;
+}
+
+.label--inline {
+  @extend .label;
+  display: inline-block;
+  margin-right: $half-spacing-unit;
 }

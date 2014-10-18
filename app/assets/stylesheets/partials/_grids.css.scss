@@ -9,17 +9,6 @@
     margin-bottom:0;
   }
 
-  .grid--rev{
-    @extend .grid;
-    direction:rtl;
-    text-align:right;
-
-    > .grid__item{
-      direction:ltr;
-      text-align:left;
-    }
-  }
-
   .grid > .grid{
     margin-left:0;
   }
@@ -31,6 +20,26 @@
     vertical-align:top;
     @if $global-border-box == false{
       @include box-sizing(border-box);
+    }
+  }
+
+  .grid--rev{
+    @extend .grid;
+    direction:rtl;
+    text-align:right;
+
+    > .grid__item{
+      direction:ltr;
+      text-align:left;
+    }
+  }
+
+  .grid--full{
+    @extend .grid;
+    margin-left:0;
+
+    > .grid__item{
+      padding-left:0;
     }
   }
 

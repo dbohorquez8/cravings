@@ -1,0 +1,33 @@
+- content_for :title do
+  What are you eating? - Cravings
+
+.wrapper
+  %h1.heading--jumbo What are you eating?
+
+  %form
+    .form-field
+      %label.label--inline I'm eating...
+      = text_field_tag "meal.name", "", placeholder: "i.e. Pizza", class: "text-input"
+
+    .form-field
+      %label.label ..for..
+      .grid--full
+        %label.custom-input.grid__item.one-third>
+          = radio_button_tag "meal.occasion", "breakfast"
+          %span.custom-input__skin.input-skin--choice.input-choice--first
+            %i.icon.icon--breakfast
+            %span.custom-input__label Breakfast
+        %label.custom-input.grid__item.one-third>
+          = radio_button_tag "meal.occasion", "lunch"
+          %span.custom-input__skin.input-skin--choice
+            %i.icon.icon--lunch
+            %span.custom-input__label Lunch
+        %label.custom-input.grid__item.one-third>
+          = radio_button_tag "meal.occasion", "dinner"
+          %span.custom-input__skin.input-skin--choice.input-choice--last
+            %i.icon.icon--dinner
+            %span.custom-input__label Dinner
+
+    .text--center
+      = submit_tag "Save it!", class: "button button--primary button--huge button--mobile"
+      

@@ -7,13 +7,70 @@ button::-moz-focus-inner,
 }
 
 .button{
-  border-radius: $border-radius-default;
+  border-radius: 0;
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.6em 2em;
   text-align: center;
   text-decoration: none;
+  transition: background 0.2s ease;
   vertical-align: middle;
   line-height: 1;
 }
 
 .button--block{display: block;}
+.button--mobile{
+  display: block;
+  width: 100%;
+
+  @include media-query(lap-and-up) {
+    display: inline-block;
+    width: auto;
+  }
+}
+.button--large { @include rem(18px); }
+.button--huge { @include rem(32px); }
+
+.button--primary {
+  background: $brand-success;
+  color: white;
+
+  &:hover, &:active {
+    background: darken($brand-success, 10%);
+  }
+}
+
+.button--default {
+  background: white;
+  color: $text-default;
+
+  &:hover, &:active {
+    background: darken(white, 10%);
+  }
+}
+
+.button--brand {
+  background: $brand-primary;
+  color: white;
+
+  &:hover, &:active {
+    background: darken($brand-primary, 10%);
+  }
+}
+
+.button--secondary {
+  background: $brand-secondary;
+  color: white;
+
+  &:hover, &:active {
+    background: darken($brand-secondary, 10%);
+  }
+}
+
+.button--highlight {
+  background: $brand-highlight;
+  color: white;
+
+  &:hover, &:active {
+    background: darken($brand-highlight, 10%);
+  }
+}
