@@ -1,0 +1,25 @@
+- content_for :title do
+  What are you in the mood to eat? - Cravings
+
+.wrapper
+  %h1.heading--jumbo Are you in the mood for...
+
+  .choices-container--suggestion
+    %button.choice--suggestion
+      .suggestion__image
+        = image_tag "suggestions/pizza.jpg", alt: "Pizza"
+        .suggestion__name
+          = "Pizza?"
+
+  .grid--rev.push-double--bottom
+    .grid__item.one-whole.lap-and-up-one-half>
+      %button.suggestion__text Yup! I'm eating this 
+
+    .grid__item.one-whole.lap-and-up-one-half>
+      %button.choices__neither Nah... What else you got?
+
+  .text--center
+    = link_to "I've already decided what I'm eating!", "", class: "text--skip"
+    
+- content_for :javascript do
+  /**/

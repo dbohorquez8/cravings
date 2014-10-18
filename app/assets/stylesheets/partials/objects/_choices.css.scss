@@ -6,6 +6,15 @@ $choice-size-desktop: 120px;
   text-align: center;
 }
 
+.choices-container--suggestion {
+  @extend .choices-container;
+  margin: 0 auto $base-spacing-unit;
+
+  @include media-query(lap-and-up) {
+    max-width: 400px;
+  }
+}
+
 .choices {
   @extend .cf;
   position: relative;
@@ -61,7 +70,7 @@ $choice-size-desktop: 120px;
   border-radius: 50%;
   bottom: 0;
   display: block;
-  height: $choice-size / 4;
+  height: $choice-size / 2;
   left: 0;
   line-height: 0.7;
   margin: auto;
@@ -69,11 +78,12 @@ $choice-size-desktop: 120px;
   position: absolute;
   right: 0;
   top: 0;
-  width: $choice-size / 4;
+  width: $choice-size / 2;
 
   @include media-query(lap-and-up) {
-    height: $choice-size-desktop / 4;
-    width: $choice-size-desktop / 4;
+    height: $choice-size-desktop / 2;
+    line-height: 1;
+    width: $choice-size-desktop / 2;
   }
 }
 
@@ -81,6 +91,7 @@ $choice-size-desktop: 120px;
   @include rem($choice-size / 4);
   border: 2px solid white;
   padding: $base-spacing-unit;
+  text-align: center;
   transition: all 0.2s ease;
   width: 100%;
 
@@ -90,5 +101,26 @@ $choice-size-desktop: 120px;
 
   @include media-query(lap-and-up) {
     @include rem($choice-size-desktop / 4);
+  }
+}
+
+.suggestion__image {
+  background: $brand-secondary;
+  padding: 10px;
+}
+
+.suggestion__name {
+  @extend .choice__name;
+  color: white;
+}
+
+.suggestion__text {
+  @extend .choices__neither;
+  background: $green;
+  border: 0 none;
+  color: white;
+
+  &:hover {
+    background: lighten($green, 10%);
   }
 }
