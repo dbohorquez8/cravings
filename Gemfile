@@ -28,6 +28,8 @@ group :development, :test do
   gem 'faker'
 end
 
+gem 'quiet_assets', :group => :development
+
 group :test do
   gem 'shoulda-matchers', require: false
 end
