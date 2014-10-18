@@ -1,6 +1,6 @@
-class Mood::TagsController < ApplicationController
+class MoodController < ApplicationController
 
-  def index
+  def selection
     respond_to do |format|
       format.html do
         @tags = Mood.next_tags
@@ -14,6 +14,9 @@ class Mood::TagsController < ApplicationController
         render json: @tags.to_json, layout: false
       end
     end
+  end
+
+  def suggestion
   end
 
 end
