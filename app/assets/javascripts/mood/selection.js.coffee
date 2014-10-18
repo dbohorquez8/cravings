@@ -8,7 +8,6 @@ Cravings.Mood.Selection =
   select: ->
     selection = $(this).find('.js-choice-name').html()
     Cravings.Mood.Selection.selections.push(selection) if selection
-    console.log Cravings.Mood.Selection.selections
     if Cravings.Mood.Selection.selections.length >= 3
       Cravings.Mood.Selection.suggest()
     else
@@ -31,11 +30,10 @@ Cravings.Mood.Selection =
       dataType: "json"
 
       success: (data) ->
-        if data == []
+        if data.length == 0
           Cravings.Mood.Selection.suggest()
         else
           Cravings.Mood.Tags = data
-          console.log data
           Cravings.Mood.Selection.displayChoices()
         return
       error: (data) ->
