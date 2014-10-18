@@ -6,19 +6,19 @@
 
   .choices-container
     .choices
-      %button.choice
+      %button.choice.js-choice
         %span.choice__icon
           %i.icon{class: "icon--#{'pizza'}"}
-        %span.choice__name
+        %span.choice__name.js-choice-name#js-left-choice
           = "Beverages"
       .choices__divider>
         or
-      %button.choice
+      %button.choice.js-choice
         %span.choice__icon
           %i.icon{class: "icon--#{'burger'}"}
-        %span.choice__name
+        %span.choice__name.js-choice-name#js-right-choice
           = "Vietnameese"
-    %button.choices__neither
+    %button.choices__neither.js-choice
       Neither!
 
   .text--center
@@ -27,6 +27,5 @@
 - content_for :javascript do
   :javascript
     Cravings.Mood.Tags = #{@tags.to_json};
-    console.log(Cravings.Mood.Tags);
 
-  = javascript_include_tag "mood/tags/index"
+  = javascript_include_tag "mood/selection"

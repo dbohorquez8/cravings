@@ -5,8 +5,8 @@ class Tag < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates_associated :choices
 
-  def to_json
-    name
+  def as_json(options={})
+    name#{:name => name, :picture => picture_url}
   end
 
 end

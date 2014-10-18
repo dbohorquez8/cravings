@@ -1,7 +1,7 @@
 class Mood
 
   def self.next_tags(previous_tags = [])
-    tags = Tag.all.map(&:name) - previous_tags.to_a
+    tags = Tag.where.not(name: previous_tags)
     tags.sample(10)
   end
 
