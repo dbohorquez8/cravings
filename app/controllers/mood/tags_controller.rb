@@ -1,7 +1,7 @@
 class Mood::TagsController < ApplicationController
 
   def index
-    @tags = (1..10).to_a
+    @tags = Tag.all.sample(10)
   end
 
 end

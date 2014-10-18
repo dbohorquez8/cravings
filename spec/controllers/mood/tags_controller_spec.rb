@@ -7,6 +7,11 @@ RSpec.describe "routing to tags", :type => :routing do
 end
 
 RSpec.describe Mood::TagsController, :type => :controller do
+
+  before(:all) do
+    10.times { create(:tag)}
+  end
+
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
