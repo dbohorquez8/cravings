@@ -23,7 +23,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon--burger:before {
+.icon--fast-foods:before {
   content: "\e600";
 }
 .icon--pizza:before {
@@ -41,4 +41,103 @@
 }
 .icon--check-circle:before {
   content: "\e605";
+}
+.icon--american:before {
+  content: "\e606";
+}
+.icon--asian:before {
+  content: "\e607";
+}
+.icon--bagels:before {
+  content: "\e608";
+}
+.icon--baked:before {
+  content: "\e609";
+}
+.icon--breads:before {
+  content: "\e60a";
+}
+.icon--candy:before {
+  content: "\e60b";
+}
+.icon--cheese:before {
+  content: "\e60c";
+}
+.icon--cookies:before {
+  content: "\e60d";
+}
+.icon--cream:before {
+  content: "\e60e";
+}
+.icon--desserts:before,
+.icon--ice:before {
+  content: "\e610";
+}
+.icon--eggs:before {
+  content: "\e611";
+}
+.icon--fried:before {
+  content: "\e612";
+}
+.icon--fruits:before {
+  content: "\e613";
+}
+.icon--grains:before {
+  content: "\e614";
+}
+.icon--grilled:before,
+.icon--smoked:before {
+  content: "\e615";
+}
+.icon--honey:before {
+  content: "\e616";
+}
+.icon--light:before {
+  content: "\e617";
+}
+.icon--meats:before {
+  content: "\e618";
+}
+.icon--mexican:before {
+  content: "\e619";
+}
+.icon--pasta:before,
+.icon--italian:before {
+  content: "\e61a";
+}
+.icon--pastries:before {
+  content: "\e61b";
+}
+.icon--pork:before {
+  content: "\e61c";
+}
+.icon--poultry:before {
+  content: "\e61d";
+}
+.icon--rice:before {
+  content: "\e61e";
+}
+.icon--roasted:before {
+  content: "\e61f";
+}
+.icon--salad:before {
+  content: "\e620";
+}
+.icon--sausage:before {
+  content: "\e621";
+}
+.icon--seafoods:before {
+  content: "\e622";
+}
+.icon--snacks:before {
+  content: "\e623";
+}
+.icon--steamed:before {
+  content: "\e624";
+}
+.icon--toppings:before {
+  content: "\e625";
+}
+.icon--vegetables:before {
+  content: "\e626";
 }
