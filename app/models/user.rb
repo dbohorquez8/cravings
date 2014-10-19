@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   has_many :authentications
   has_many :meals
 
-  accepts_nested_attributes_for :authentications
+  accepts_nested_attributes_for :authentications, :meals
 end

@@ -1,0 +1,3 @@
+%ul
+  - @meals.each do |meal|
+    %li= "You had #{meal.choice.name} for #{meal.occasion} #{time_ago_in_words(meal.created_at)} ago"

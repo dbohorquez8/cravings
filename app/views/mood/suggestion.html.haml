@@ -26,6 +26,9 @@
   - params[:selections].each do |selection_name|
     %input(type="hidden" name="selections[]" value="#{selection_name}")
 
+= form_tag "/meals", method: :post, class: "js-mood-suggestion" do
+  %input(type="hidden" name="choice" value="#{@suggestion.name}")
+
 - content_for :javascript do
   :javascript
     Cravings.Mood.Selections = #{@selections.to_json};

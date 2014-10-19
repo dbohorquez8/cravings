@@ -8,9 +8,12 @@ Cravings.Mood.Suggestion =
   nextChoice: ->
     $('.js-mood-selections').submit()
 
+  choose: ->
+    $('.js-mood-suggestion').submit()
+
   setEvents: ->
     $('.js-other-choice').on('click', @nextChoice)
-    $('.js-select-choice').on('click', @nextChoice)
+    $('.js-select-choice').on('click', @choose)
 
   displayChoices: ->
     if Cravings.Mood.Tags.length >= 2
