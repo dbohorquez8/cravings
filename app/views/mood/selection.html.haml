@@ -6,24 +6,24 @@
 
   .choices-container
     .choices
-      %button.choice.js-choice
+      %button.choice.js-choice#js-left-choice
         %span.choice__icon
           %i.icon{class: "icon--#{'pizza'}"}
-        %span.choice__name.js-choice-name#js-left-choice
+        %span.choice__name.js-choice-name
           = "Beverages"
       .choices__divider>
         or
-      %button.choice.js-choice
+      %button.choice.js-choice#js-right-choice
         %span.choice__icon
           %i.icon{class: "icon--#{'burger'}"}
-        %span.choice__name.js-choice-name#js-right-choice
+        %span.choice__name.js-choice-name
           = "Vietnameese"
     %button.choices__neither.has-border.js-choice
       Neither!
 
   .text--center
     = link_to "I've already decided what I'm eating!", new_meal_path, class: "text--skip"
-    
+
 - content_for :javascript do
   :javascript
     Cravings.Mood.Tags = #{@tags.to_json};

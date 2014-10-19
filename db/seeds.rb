@@ -28,15 +28,12 @@ common_tag_names = %w(
   ice
   cream
   yogurts
-  fats
   condiments
   sauces
   dressings
   soup
-  tofu
   snacks
   candy
-  chocolate
   cakes
   muffins
   baked
@@ -78,7 +75,7 @@ common_choices = { "fried chicken" => %w[poultry fast-foods fried honey],
                    "burrito" => %w[mexican fast-foods cheese rice grains],
                    "pizza" => %w[italian fast-foods cheese baked dressings],
                    "lasagna" => %w[italian cheese meats poultry baked],
-                   "seafood" => %w[seafood condiments snacks crackers],
+                   "seafood" => %w[seafood snacks],
                    "lime pie" => %w[pastries candy snacks desserts],
                    "ice cream" => %w[candy pastries snacks desserts ice],
                    "cobb salad" => %w[vegetables salads toppings],

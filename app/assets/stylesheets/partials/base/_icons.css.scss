@@ -82,6 +82,7 @@
 .icon--fruits:before {
   content: "\e613";
 }
+.icon--flour:before,
 .icon--grains:before {
   content: "\e614";
 }
@@ -120,7 +121,8 @@
 .icon--roasted:before {
   content: "\e61f";
 }
-.icon--salad:before {
+.icon--dressings:before,
+.icon--salads:before {
   content: "\e620";
 }
 .icon--sausage:before {
