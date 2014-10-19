@@ -8,22 +8,25 @@
     .choices
       %button.choice.js-choice#js-left-choice
         %span.choice__icon
-          %i.icon{class: "icon--#{'pizza'}"}
+          %i.icon
         %span.choice__name.js-choice-name
-          = "Beverages"
       .choices__divider>
         or
       %button.choice.js-choice#js-right-choice
         %span.choice__icon
-          %i.icon{class: "icon--#{'burger'}"}
+          %i.icon
         %span.choice__name.js-choice-name
-          = "Vietnameese"
     %button.choices__neither.has-border.js-choice
       Neither!
 
-  .text--center
-    = link_to "I've already decided what I'm eating!", new_meal_path, class: "text--skip"
-
+  .grid--rev.choices__footer
+    .grid__item.one-whole.lap-and-up-one-half.choices__chosen>
+      .js-selected-tags.js-hidden
+        %p.push-half--bottom You are in the mood for:
+        %ul.list--tags
+    .grid__item.one-whole.lap-and-up-one-half>
+      = link_to "I've already decided what I'm eating!", new_meal_path, class: "text--skip"
+    
 - content_for :javascript do
   :javascript
     FormAuthenticityToken = "#{form_authenticity_token}";

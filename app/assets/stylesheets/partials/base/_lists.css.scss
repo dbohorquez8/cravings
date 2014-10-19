@@ -1,0 +1,10 @@
+.list--tags li {
+  @include rem(14px);
+  background: $brand-secondary;
+  border-radius: 14px;
+  color: white;
+  display: inline-block;
+  line-height: 1;
+  margin: 0.1em;
+  padding: 0.5em 1em;
+}

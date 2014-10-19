@@ -37,9 +37,11 @@ $choice-size-desktop: 120px;
 
 .choice__icon {
   @include rem($choice-size);
+  height: $choice-size;
 
   @include media-query(lap-and-up) {
     @include rem($choice-size-desktop);
+    height: $choice-size-desktop;
   }
 }
 
@@ -116,5 +118,25 @@ $choice-size-desktop: 120px;
 
   &:hover, &:active {
     background: darken($brand-success, 10%);
+  }
+}
+
+.choices--footer {
+  .text--skip {
+    text-align: center;
+
+    @include media-query(lap-and-up) {
+      text-align: left;
+    }
+  }
+}
+
+.choices__chosen {
+  margin-bottom: $base-spacing-unit * 2;
+  text-align: center;
+  text-transform: capitalize;
+
+  @include media-query(lap-and-up) {
+    text-align: right !important;
   }
 }

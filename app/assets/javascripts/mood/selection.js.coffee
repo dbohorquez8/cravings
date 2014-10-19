@@ -4,6 +4,7 @@ Cravings.Mood.Selection =
     @displayChoices()
     @selections = []
     @setEvents()
+    $('.js-hidden').hide();
 
   select: ->
     selection = $(this).find('.js-choice-name').html()
@@ -12,6 +13,7 @@ Cravings.Mood.Selection =
       Cravings.Mood.Selection.suggest()
     else
       Cravings.Mood.Selection.displayChoices()
+      Cravings.Mood.Selection.addSelectionToList(selection)
 
   setEvents: ->
     $('.js-choice').on('click', @select)
@@ -51,6 +53,12 @@ Cravings.Mood.Selection =
       form.append('<input type="hidden" name="selections[]" value="'+obj+'" />')
     $('body').append(form)
     form.submit();
+
+  addSelectionToList: (selection) ->
+    if selection
+      $('.js-selected-tags').show()
+      $('.js-selected-tags').find('.list--tags').append("<li>#{selection}</li>")
+    return
 
 $ ->
   Cravings.Mood.Selection.init()
