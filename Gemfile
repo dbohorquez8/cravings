@@ -28,6 +28,8 @@ group :development, :test do
   gem 'faker'
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'quiet_assets', :group => :development
 
 group :test do
