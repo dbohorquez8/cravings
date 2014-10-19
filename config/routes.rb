@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :mood do
     get :selection
     post :suggestion
+    get :suggestion, to: redirect("/mood/selection")
   end
 
   resources :meals, :only => [:index, :new, :create]

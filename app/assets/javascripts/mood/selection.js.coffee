@@ -16,7 +16,7 @@ Cravings.Mood.Selection =
 
   setEvents: ->
     $('.js-choice').on('click', @select)
-    $('.js-selected-tags').find('ul.list--tags').on('click', @remove)
+    $('.js-selected-tags').find('ul.list--tags').on('click', 'li', @remove)
 
   displayChoices: ->
     if Cravings.Mood.Tags.length >= 2
@@ -43,8 +43,6 @@ Cravings.Mood.Selection =
           Cravings.Mood.Tags = data
           Cravings.Mood.Selection.displayChoices()
         return
-      error: (data) ->
-        console.log 1
 
   suggest: ->
     form = $('<form action="/mood/suggestion" method="post"></form>')
@@ -58,17 +56,14 @@ Cravings.Mood.Selection =
     Cravings.Mood.Selection.selections.push(selection)
     if selection
       $('.js-selected-tags').show()
-      $('.js-selected-tags').find('.list--tags').append("<li>#{selection}</li>")
+      $('.js-selected-tags').find('.list--tags').append("<li><span>#{selection}</span> <i class='icon icon--cancel-circle'></i></li>")
 
     return
 
   remove: (el) ->
-    if $(el.target).is('li')
-      selection = $(el.target).html()
-      $(el.target).remove()
-      Cravings.Mood.Selection.selections.splice(Cravings.Mood.Selection.selections.indexOf(selection), 1)
-
-      console.log(Cravings.Mood.Selection.selections)
+    selection = $(el).html()
+    @remove()
+    Cravings.Mood.Selection.selections.splice(Cravings.Mood.Selection.selections.indexOf(selection), 1)
 
 $ ->
   Cravings.Mood.Selection.init()
