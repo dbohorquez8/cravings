@@ -9,7 +9,7 @@ Cravings.Mood.Selection =
   select: ->
     selection = $(this).find('.js-choice-name').html()
     Cravings.Mood.Selection.addSelectionToList(selection) if selection
-    if Cravings.Mood.Selection.selections.length >= 3
+    if Cravings.Mood.Selection.selections.length >= Cravings.Mood.maxSelections
       Cravings.Mood.Selection.suggest()
     else
       Cravings.Mood.Selection.displayChoices()

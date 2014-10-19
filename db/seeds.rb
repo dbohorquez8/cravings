@@ -150,3 +150,9 @@ common_choices.each do |name, tag_names|
 
 end
 puts "Done."
+
+print "Resetting default settings..."
+Setting.delete_all
+Setting.create name: "max_selections", value: 3, data_type: "to_i"
+puts "Done."
+
