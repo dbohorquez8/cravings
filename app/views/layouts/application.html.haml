@@ -3,9 +3,20 @@
 
   = render :partial => "shared/head"
 
-  %body
+  %body{class: "#{'dashboard' if user_signed_in?}"}
     .main-wrapper
       = render :partial => "shared/header"
+
+      - if user_signed_in?
+        %nav.main-nav
+          .wrapper
+            %ul
+              %li
+                = link_to "Dashboard", meals_path
+              %li
+                = link_to "Mood Test", mood_selection_path
+              %li
+                = link_to "Log out", "/users/sign_out"
 
       .main-content
         = yield

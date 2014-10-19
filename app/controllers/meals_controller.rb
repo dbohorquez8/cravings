@@ -6,15 +6,11 @@ class MealsController < ApplicationController
   def index
     @meals = current_user.meals.includes(:choice).order("created_at desc")
     @metric_data = Metrics.most_frequent_tags_data(current_user)
-    render layout: "dashboard"
   end
 
   def new
     @choices = Choice.all.map { |choice| choice.name.titleize }
 
-    if signed_in?
-      render layout: "dashboard"
-    end
   end
 
   def create
