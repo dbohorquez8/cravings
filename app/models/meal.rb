@@ -8,7 +8,7 @@ class Meal < ActiveRecord::Base
   private
 
   def guess_occasion
-    self.occasion = Occasion.guess
+    self.occasion = Occasion.guess unless self.occasion
   end
 
 end
