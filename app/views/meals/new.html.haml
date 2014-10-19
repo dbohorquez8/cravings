@@ -30,3 +30,11 @@
 
     .text--center
       = submit_tag "Save it!", class: "button button--primary button--huge button--mobile"
+
+      - content_for :javascript do
+        = javascript_include_tag "//code.jquery.com/ui/1.11.2/jquery-ui.js"
+        :javascript
+          $(function() {
+              var availableTags = #{@choices.to_json};
+              $("#choice").autocomplete({ source: availableTags });
+            });

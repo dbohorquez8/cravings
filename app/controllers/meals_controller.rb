@@ -8,6 +8,7 @@ class MealsController < ApplicationController
   end
 
   def new
+    @choices = Choice.all.map { |choice| choice.name.titleize }
   end
 
   def create
