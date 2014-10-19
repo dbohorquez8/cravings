@@ -26,6 +26,7 @@
 
 - content_for :javascript do
   :javascript
+    FormAuthenticityToken = "#{form_authenticity_token}";
     Cravings.Mood.Tags = #{@tags.to_json};
 
   = javascript_include_tag "mood/selection"

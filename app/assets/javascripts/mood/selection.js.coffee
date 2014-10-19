@@ -45,7 +45,8 @@ Cravings.Mood.Selection =
         console.log 1
 
   suggest: ->
-    form = $('<form action="/mood/suggestion"></form>')
+    form = $('<form action="/mood/suggestion" method="post"></form>')
+    form.append('<input name="authenticity_token" type="hidden" value="'+FormAuthenticityToken+'" />')
     $.each Cravings.Mood.Selection.selections, (i, obj)=>
       form.append('<input type="hidden" name="selections[]" value="'+obj+'" />')
     $('body').append(form)

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :mood do
     get :selection
-    get :suggestion
+    post :suggestion
   end
 
   resources :meals, :only => [:new]

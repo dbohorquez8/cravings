@@ -18,6 +18,7 @@ class MoodController < ApplicationController
 
   def suggestion
     @selections = params[:selections]
+    @suggestion = Choice.suggest(@selections)
   end
 
 end
