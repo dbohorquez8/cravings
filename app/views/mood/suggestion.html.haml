@@ -7,9 +7,9 @@
   .choices-container--suggestion
     %button.choice--suggestion.js-select-choice
       .suggestion__image
-        = image_tag "suggestions/pizza.jpg", alt: "Pizza"
+        = image_tag "suggestions/#{@suggestion.name}.jpg", alt: @suggestion.name.capitalize
         .suggestion__name
-          = @suggestion.name
+          = @suggestion.name.capitalize
 
   .grid--rev.grid--full.push-double--bottom
     .grid__item.one-whole.lap-and-up-one-half>
