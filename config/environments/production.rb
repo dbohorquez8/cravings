@@ -78,7 +78,7 @@ Rails.application.configure do
 
   config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
     r301 %r{.*}, 'http://incognito-mode.r14.railsrumble.com$&', :if => Proc.new {|rack_env|
-      rack_env['SERVER_NAME'] != 'www.cravin.gs'
+      rack_env['SERVER_NAME'] == 'www.cravin.gs'
     }
   end
 
