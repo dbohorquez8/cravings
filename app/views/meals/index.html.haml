@@ -1,4 +1,18 @@
-%ul
-  %li= "Hi #{current_user.name}"
-  - @meals.each do |meal|
-    %li= "You had #{meal.choice.name} for #{meal.occasion} #{time_ago_in_words(meal.created_at)} ago"
+.wrapper
+  %h1.heading--jumbo= "Welcome, #{current_user.name}"
+
+  %h2.heading--jumbo.text--left.push-half--bottom What you've been eating
+
+  %ul.list--table
+    - @meals.each do |meal|
+      %li.choice-entry{class: "choice-entry__occasion--#{meal.occasion}"}
+        .choice-entry__image
+          = image_tag "suggestions/#{meal.choice.picture_url}.jpg", alt: meal.choice.name.capitalize
+        .choice-entry__body
+          .choice-entry__text-container
+            .choice-entry__text
+              You had
+              %strong= meal.choice.name.capitalize 
+              for 
+              %strong= meal.occasion.capitalize
+              = "#{time_ago_in_words(meal.created_at)} ago"

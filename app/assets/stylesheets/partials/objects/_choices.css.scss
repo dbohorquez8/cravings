@@ -153,7 +153,9 @@ $choice-size-desktop: 120px;
 
 .choice-entry__body {
   @extend .media__body;
+  @include rem(16px);
   height: 40px;
+  line-height: 1.2;
 
   @include media-query(lap-and-up) {
     @include rem(24px);

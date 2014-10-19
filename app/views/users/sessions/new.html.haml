@@ -4,7 +4,7 @@
 .wrapper
   %h1.heading--jumbo That sounds delicious!
 
-  .choice-entry.choice-entry__occasion--breakfast.push-double--bottom
+  .choice-entry.push-double--bottom{class: "choice-entry__occasion--#{Occasion.guess}"}
     .choice-entry__image
       = image_tag "suggestions/#{@choice.picture_url}.jpg", alt: @choice.name.capitalize
     .choice-entry__body

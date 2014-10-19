@@ -19,8 +19,12 @@
   }
 }
 
+.list--table {
+  border-top: 1px solid $gray-light;
+}
+
 .list--table li {
-  border-bottom: 1px solid $border-color-default;
+  border-bottom: 1px solid $gray-light;
   display: block;
   padding: $half-spacing-unit;
 }
