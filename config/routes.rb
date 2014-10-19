@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/authentications/omniauth_callbacks" }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :meals, :only => [:new]
+  resources :users, :only => [:new]
 
   get "main" => "pages#index"
   root to: "mood#selection"

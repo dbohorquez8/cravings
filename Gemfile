@@ -11,6 +11,7 @@ gem 'spring',        group: :development
 gem 'haml'
 gem 'devise'
 gem 'underscore-rails'
+gem 'omniauth-facebook'
 
 group :assets, :development do
   gem 'sass-rails', '~> 4.0.3'
