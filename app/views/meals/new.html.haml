@@ -7,7 +7,7 @@
   = form_tag meals_path do
     .form-field.autocomplete-container.js-autocomplete-container.float--left
       %label.label--inline I'm eating...
-      = text_field_tag "choice", "", placeholder: "i.e. Pizza", class: "text-input"
+      = text_field_tag "choice", "", placeholder: "i.e. Pizza", class: "text-input", required: true
 
     .form-field.clear
       %label.label ..for..
@@ -36,5 +36,21 @@
         :javascript
           $(function() {
             var availableTags = #{@choices.to_json};
-            $("#choice").autocomplete({ source: availableTags, appendTo: ".js-autocomplete-container" });
+            $("#choice").autocomplete({
+              delay: 0,
+              minLength: 0,
+              autoFocus: true,
+              source: availableTags,
+              appendTo: ".js-autocomplete-container",
+              change: function (event, ui) { if(!ui.item) { $(event.target).val(""); } }
+            }).focus(function() {
+              $(this).autocomplete("search");
+            }).click(function() {
+              $(this).autocomplete("search");
+            }).parents("form").keypress(function(e) {
+              if (e.keyCode == 13) {               
+                e.preventDefault();
+                return false;
+              }
+            });
           });
