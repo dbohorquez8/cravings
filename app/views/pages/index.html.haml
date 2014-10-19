@@ -6,5 +6,11 @@
     %h1.heading--jumbo.push-half--bottom Don't know what to eat?
     %p Let's find out what you are craving for
     = link_to "Let's Go!", mood_selection_path, class: "button button--brand button--huge push--bottom"
-    %div
+    .push-double--bottom
       = link_to "Go to my dashboard", user_omniauth_authorize_path(:facebook), class: "text--skip"
+
+    .push-half--bottom
+      %strong Remember to vote for us!
+    %p
+      = link_to "http://railsrumble.com/entries/203-incognito-mode", target: "_blank" do
+        = image_tag "https://d4nnn7wspfa3h.cloudfront.net/rails-rumble-badge-2014.png", alt: "Vote for Cravings for the RailsRumble 2014"

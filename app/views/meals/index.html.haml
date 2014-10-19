@@ -1,21 +1,26 @@
 .wrapper
   %h1.heading--jumbo= "Welcome, #{current_user.name}"
-  #donutchart{style: "width: 900px; height: 500px;"}
-  %h2.heading--jumbo.text--left.push-half--bottom What you've been eating
+  
+  .grid
+    .grid__item.one-whole.desk-two-thirds.push--bottom>
+      %h2.heading--large.text--left.push-half--bottom What you've been eating
 
-  %ul.list--table
-    - @meals.each do |meal|
-      %li.choice-entry{class: "choice-entry__occasion--#{meal.occasion}"}
-        .choice-entry__image
-          = image_tag "suggestions/#{meal.choice.picture_url}.jpg", alt: meal.choice.name.capitalize
-        .choice-entry__body
-          .choice-entry__text-container
-            .choice-entry__text
-              You had
-              %strong= meal.choice.name.capitalize 
-              for 
-              %strong= meal.occasion.capitalize
-              = "#{time_ago_in_words(meal.created_at)} ago"
+      %ul.list--table
+        - @meals.each do |meal|
+          %li.choice-entry{class: "choice-entry__occasion--#{meal.occasion}"}
+            .choice-entry__image
+              = image_tag "suggestions/#{meal.choice.picture_url}.jpg", alt: meal.choice.name.capitalize
+            .choice-entry__body
+              .choice-entry__text-container
+                .choice-entry__text
+                  You had
+                  %strong= meal.choice.name.capitalize 
+                  for 
+                  %strong= meal.occasion.capitalize
+                  = "#{time_ago_in_words(meal.created_at)} ago"
+    .grid__item.one-whole.desk-one-third>
+      %h2.heading--large.text--left.push-half--bottom What you usually choose
+      #donutchart
 
 - content_for :javascript do
   = javascript_include_tag "https://www.google.com/jsapi"
@@ -26,8 +31,10 @@
       var data = google.visualization.arrayToDataTable(#{@metric_data});
 
       var options = {
-        title: 'Most frequent selections',
-        pieHole: 0.5,
+        title: '',
+        legend: 'bottom',
+        'chartArea': {'width': '100%', 'height': '80%'},
+        height: 300
       };
 
       var chart = new google.visualization.PieChart(document.getElementById('donutchart'));

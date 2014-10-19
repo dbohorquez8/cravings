@@ -13,6 +13,10 @@ class MoodController < ApplicationController
         session[:tags] = (@tags.map(&:name) + previous_tags).to_json
         render json: @tags.to_json, layout: false
       end
+
+      if signed_in?
+        render layout: "dashboard"
+      end
     end
   end
 
@@ -21,6 +25,10 @@ class MoodController < ApplicationController
     @selections = params[:selections]
     @suggestion = Mood.suggest(@selections, @offset)
     @offset += 1
+
+    if signed_in?
+      render layout: "dashboard"
+    end
   end
 
   private

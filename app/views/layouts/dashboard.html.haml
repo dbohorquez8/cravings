@@ -1,0 +1,23 @@
+!!! 5
+%html.no-js{:lang => "en"}
+
+  = render :partial => "shared/head"
+
+  %body.dashboard
+    .main-wrapper
+      = render :partial => "shared/header"
+
+      .main-nav
+        .wrapper
+          %ul
+            %li
+              = link_to "Dashboard", meals_path
+            %li
+              = link_to "Mood Test", mood_selection_path
+            %li
+              = link_to "Log out", "/users/sign_out"
+
+      .main-content
+        = yield
+    
+    = render :partial => "shared/scripts"

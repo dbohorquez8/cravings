@@ -110,6 +110,18 @@ small, .milli {
   }
 }
 
+.heading--large {
+  @extend .gamma;
+
+  font-family: $headings-font-family;
+  margin-bottom: 1em;
+  text-align: center;
+
+  @include media-query(lap-and-up) {
+    @include rem(24px);
+  }
+}
+
 .text--skip { color: $gray-dark; }
 .text--brand { color: $brand-primary; }
 .text--secondary { color: $brand-secondary; }

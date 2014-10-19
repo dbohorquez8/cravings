@@ -28,3 +28,17 @@
   display: block;
   padding: $half-spacing-unit;
 }
+
+.list--inline li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.list--nav {
+  @extend .list--inline;
+  text-align: center;
+
+  @include media-query(lap-and-up) {
+    text-align: right;
+  }
+}

@@ -1,5 +1,5 @@
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 
 .wrapper{
@@ -49,4 +49,36 @@ html, body {
 
 .main-content {
   padding: $base-spacing-unit 0;
+}
+
+.dashboard .main-content {
+  padding-top: 0;
+}
+
+.main-nav {
+  ul {
+    @extend .list--inline;
+    @include rem(16px);
+    text-align: center;
+
+    @include media-query(lap-and-up) {
+      text-align: left;
+    }
+  }
+
+  background: $brand-primary;
+  margin-bottom: $base-spacing-unit;
+
+  li { margin: 0 !important; }
+
+  a {
+    display: inline-block;
+    color: white;
+    padding: 0.25em 1em;
+    text-decoration: none;
+
+    &:hover {
+      background: darken($brand-primary, 10%);
+    }
+  }
 }
