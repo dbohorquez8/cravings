@@ -1,16 +1,7 @@
 Cravings.Mood.Suggestion = 
 
   init: ->
-    @embedSelectionsForm()
     @setEvents()
-
-  embedSelectionsForm: ->
-    form = $('<form class="js-mood-selections" action="/mood/suggestion"></form>')
-    $.each Cravings.Mood.Selections, (i, obj)=>
-      form.append('<input type="hidden" name="selections[]" value="'+obj+'" />')
-    $('body').append(form)
-
-
 
   select: ->
 
@@ -35,8 +26,8 @@ Cravings.Mood.Suggestion =
       dataType: "json"
 
       success: (data) ->
-        if data == []
-          Cravings.Mood.Selection.suggest()
+        if data.length == 0
+          @nextChoice()
         else
           Cravings.Mood.Tags = data
           console.log data
@@ -45,12 +36,6 @@ Cravings.Mood.Suggestion =
       error: (data) ->
         console.log 1
 
-  suggest: ->
-    form = $('<form action="/mood/suggestion"></form>')
-    $.each Cravings.Mood.Selection.selections, (i, obj)=>
-      form.append('<input type="hidden" name="selections[]" value="'+obj+'" />')
-    $('body').append(form)
-    form.submit();
 
 $ ->
   Cravings.Mood.Suggestion.init()

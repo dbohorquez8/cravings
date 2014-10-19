@@ -6,7 +6,7 @@ class Mood
     tags.sample(10)
   end
 
-  def self.suggest(selections)
+  def self.suggest(selections, offset = 0)
     return shuffle if selections.blank?
     choices = Choice.select("choices.id, choices.name, count(tags.id)").
                       joins(:tags).
@@ -14,7 +14,7 @@ class Mood
                       group("choices.id,choices.name").
                       order("3 desc")
     # Search most matched choice
-    choices.blank? ? shuffle : choices.first
+    choices.blank? ? shuffle : choices[offset]
   end
 
   private

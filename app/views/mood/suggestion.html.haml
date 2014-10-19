@@ -20,7 +20,12 @@
 
   .text--center
     = link_to "I've already decided what I'm eating!", "", class: "text--skip"
-    
+
+= form_tag "/mood/suggestion", method: :post, class: "js-mood-selections" do
+  %input(type="hidden" name="offset" value="#{@offset}")
+  - params[:selections].each do |selection_name|
+    %input(type="hidden" name="selections[]" value="#{selection_name}")
+
 - content_for :javascript do
   :javascript
     Cravings.Mood.Selections = #{@selections.to_json};

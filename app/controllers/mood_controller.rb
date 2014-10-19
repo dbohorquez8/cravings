@@ -17,8 +17,16 @@ class MoodController < ApplicationController
   end
 
   def suggestion
+    set_offset
     @selections = params[:selections]
-    @suggestion = Mood.suggest(@selections)
+    @suggestion = Mood.suggest(@selections, @offset)
+    @offset += 1
+  end
+
+  private
+
+  def set_offset
+    @offset ||= params[:offset].to_i
   end
 
 end
