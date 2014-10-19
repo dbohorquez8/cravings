@@ -12,8 +12,13 @@ end
 
 RSpec.describe MoodController, :type => :controller do
 
-  before(:all) do
-    10.times { create(:tag)}
+  before do
+    @choice = create(:choice)
+    20.times { create(:tag)}
+    @tags = Tag.all
+    @chosen_tags_count = 10
+    @chosen_tags = @tags.sample(@chosen_tags_count)
+    @choice.tags << @chosen_tags
   end
 
   describe "GET #selection" do
