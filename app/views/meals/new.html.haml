@@ -5,11 +5,11 @@
   %h1.heading--jumbo What are you eating?
 
   = form_tag meals_path do
-    .form-field
+    .form-field.autocomplete-container.js-autocomplete-container.float--left
       %label.label--inline I'm eating...
       = text_field_tag "choice", "", placeholder: "i.e. Pizza", class: "text-input"
 
-    .form-field
+    .form-field.clear
       %label.label ..for..
       .grid--full
         %label.custom-input.grid__item.one-third>
@@ -35,6 +35,6 @@
         = javascript_include_tag "//code.jquery.com/ui/1.11.2/jquery-ui.js"
         :javascript
           $(function() {
-              var availableTags = #{@choices.to_json};
-              $("#choice").autocomplete({ source: availableTags });
-            });
+            var availableTags = #{@choices.to_json};
+            $("#choice").autocomplete({ source: availableTags, appendTo: ".js-autocomplete-container" });
+          });
