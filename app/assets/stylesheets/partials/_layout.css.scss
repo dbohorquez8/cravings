@@ -82,3 +82,10 @@ html, body {
     }
   }
 }
+
+.main-footer {
+  @include rem(16px);
+  color: $gray-dark;
+  text-align: center;
+  padding: $base-spacing-unit 5px;
+}

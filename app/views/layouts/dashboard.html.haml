@@ -7,7 +7,7 @@
     .main-wrapper
       = render :partial => "shared/header"
 
-      .main-nav
+      %nav.main-nav
         .wrapper
           %ul
             %li
@@ -19,5 +19,7 @@
 
       .main-content
         = yield
+
+    = render :partial => "shared/footer"
     
     = render :partial => "shared/scripts"
