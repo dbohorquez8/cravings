@@ -1,0 +1,56 @@
+.landing {
+  background: url(image-path('landing.jpg')) no-repeat top;
+  background-size: cover;
+
+  @include media-query(lap-and-up) {
+    background-image: url(image-path('landing-laptop.jpg'));
+  }
+
+  @include media-query(desk-wide) {
+    background-image: url(image-path('landing-wide.jpg'));
+  }
+}
+
+.landing .main-wrapper {
+  @include rem(20px);
+  background: rgba(0,0,0,0.5);
+  color: white;
+
+  @include media-query(lap-and-up) {
+    @include rem(24px);
+  }
+
+  p {
+    font-weight: 700;
+    margin-bottom: 2em;
+  }
+}
+
+.landing .main-header {
+  padding: $half-spacing-unit 0 $base-spacing-unit;
+}
+
+.landing .main-logo {
+  @include rem(48px);
+
+  @include media-query(lap-and-up) {
+    @include rem(60px);
+  }
+}
+
+.landing .main-content {
+  border-top: 2px solid white;
+  padding: ($base-spacing-unit * 2) 0;
+}
+
+.landing .heading--jumbo {
+  @include rem(28px);
+  @include media-query(lap-and-up) {
+    @include rem(48px);
+  }
+}
+
+.landing .wrapper {
+  padding: 0 5px;
+}
+

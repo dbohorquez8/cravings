@@ -82,15 +82,10 @@ $choice-size-desktop: 120px;
 }
 
 .choices__neither {
+  @extend .button--default;
   @include rem($choice-size / 4);
   padding: $base-spacing-unit;
-  text-align: center;
-  transition: all 0.2s ease;
   width: 100%;
-
-  &:hover, &:active {
-    background: $gray-lighter;
-  }
 
   @include media-query(lap-and-up) {
     @include rem($choice-size-desktop / 4);
@@ -112,12 +107,13 @@ $choice-size-desktop: 120px;
 }
 
 .suggestion__text {
-  @extend .choices__neither;
   @extend .button--primary;
-  border: 0 none;
+  @include rem($choice-size / 4);
+  padding: $base-spacing-unit;
+  width: 100%;
 
-  &:hover, &:active {
-    background: darken($brand-success, 10%);
+  @include media-query(lap-and-up) {
+    @include rem($choice-size-desktop / 4);
   }
 }
 

@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 .wrapper{
   @extend .cf;
   margin: auto;
@@ -5,9 +9,19 @@
   max-width: $wrapper-width;
 }
 
+.main-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
 .main-header {
   background: $brand-primary;
-  padding: $base-spacing-unit;
+  padding: $half-spacing-unit;
+
+  @include media-query(lap-and-up) {
+    padding: $half-spacing-unit 0 $base-spacing-unit;
+  }
 }
 
 .main-logo {

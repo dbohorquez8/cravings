@@ -40,11 +40,11 @@ button::-moz-focus-inner,
 }
 
 .button--default {
-  background: white;
+  background: $gray-lighter;
   color: $text-default;
 
   &:hover, &:active {
-    background: darken(white, 10%);
+    background: darken($gray-lighter, 10%);
   }
 }
 
