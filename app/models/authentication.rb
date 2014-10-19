@@ -12,7 +12,7 @@ class Authentication < ActiveRecord::Base
         user.name = auth.info.name
         user.password = Devise.friendly_token[0,20]
         user.authentications_attributes = [{ provider: auth.provider, uid: auth.uid }]
-        user.meals_attributes = [{ choice_id: options[:last_choice_id] }]
+        user.meals_attributes = [{ choice_id: options[:last_choice_id] }] if options[:last_choice_id]
       end
     end
   end
