@@ -6,4 +6,21 @@ class Mood
     tags.sample(10)
   end
 
+  def self.suggest(selections)
+    return shuffle if selections.blank?
+    choices = Choice.select("choices.id, choices.name, count(tags.id)").
+                      joins(:tags).
+                      where(:"tags.name" => selections).
+                      group("choices.id,choices.name").
+                      order("3 desc")
+    # Search most matched choice
+    choices.blank? ? shuffle : choices.first
+  end
+
+  private
+
+    def self.shuffle
+      Choice.where(nil).sample(1).first
+    end
+
 end
