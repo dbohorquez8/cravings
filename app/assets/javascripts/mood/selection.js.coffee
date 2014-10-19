@@ -1,22 +1,22 @@
-Cravings.Mood.Selection = 
+Cravings.Mood.Selection =
 
   init: ->
     @displayChoices()
     @selections = []
     @setEvents()
-    $('.js-hidden').hide();
+    $('.js-hidden').hide()
 
   select: ->
     selection = $(this).find('.js-choice-name').html()
-    Cravings.Mood.Selection.selections.push(selection) if selection
+    Cravings.Mood.Selection.addSelectionToList(selection) if selection
     if Cravings.Mood.Selection.selections.length >= 3
       Cravings.Mood.Selection.suggest()
     else
       Cravings.Mood.Selection.displayChoices()
-      Cravings.Mood.Selection.addSelectionToList(selection)
 
   setEvents: ->
     $('.js-choice').on('click', @select)
+    $('.js-selected-tags').find('ul.list--tags').on('click', @remove)
 
   displayChoices: ->
     if Cravings.Mood.Tags.length >= 2
@@ -52,13 +52,23 @@ Cravings.Mood.Selection =
     $.each Cravings.Mood.Selection.selections, (i, obj)=>
       form.append('<input type="hidden" name="selections[]" value="'+obj+'" />')
     $('body').append(form)
-    form.submit();
+    form.submit()
 
   addSelectionToList: (selection) ->
+    Cravings.Mood.Selection.selections.push(selection)
     if selection
       $('.js-selected-tags').show()
       $('.js-selected-tags').find('.list--tags').append("<li>#{selection}</li>")
+
     return
+
+  remove: (el) ->
+    if $(el.target).is('li')
+      selection = $(el.target).html()
+      $(el.target).remove()
+      Cravings.Mood.Selection.selections.splice(Cravings.Mood.Selection.selections.indexOf(selection), 1)
+
+      console.log(Cravings.Mood.Selection.selections)
 
 $ ->
   Cravings.Mood.Selection.init()
