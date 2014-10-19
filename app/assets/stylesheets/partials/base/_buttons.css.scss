@@ -74,3 +74,12 @@ button::-moz-focus-inner,
     background: darken($brand-highlight, 10%);
   }
 }
+
+.button--facebook {
+  background: $blue-facebook;
+  color: white;
+
+  &:hover, &:active {
+    background: darken($blue-facebook, 10%);
+  }
+}

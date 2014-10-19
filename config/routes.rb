@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :users, :only => [:new]
 
   root to: "pages#index"
+
+  get "signup" => "pages#signup"
 end

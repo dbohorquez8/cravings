@@ -1,0 +1,28 @@
+- content_for :title do
+  Cravings
+
+.wrapper
+  %h1.heading--jumbo That sounds delicious!
+
+  .choice-entry.choice-entry__occasion--breakfast.push--bottom
+    .choice-entry__image
+      = image_tag "suggestions/pizza.jpg", alt: "Pizza"
+    .choice-entry__body
+      .choice-entry__text-container
+        .choice-entry__text
+          I'm eating 
+          %strong Pizza 
+          for 
+          %strong Breakfast
+
+  %p.push-half--bottom
+    %strong.logo Cravings
+    can remember your choices and provide more accurate suggestions for your meals.
+  %p.push-half--bottom 
+    By logging your meals regularly,
+    %strong.logo Cravings
+    will learn about your taste and can help you decide when you don't know what to eat. 
+  %p.push-half--bottom It'll even let you find out what meals you like that you haven't eaten in a while.
+
+  .text--center
+    = link_to "Sign me up with Facebook!", user_omniauth_authorize_path(:facebook), class: "button button--facebook button--large button--mobile"

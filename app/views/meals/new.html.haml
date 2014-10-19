@@ -29,6 +29,5 @@
             %span.custom-input__label Dinner
 
     .text--center
-      = submit_tag "Save it!", class: "button button--primary button--huge button--mobile"
-      = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+      = link_to "Save it!", signup_path, class: "button button--primary button--huge button--mobile"
       

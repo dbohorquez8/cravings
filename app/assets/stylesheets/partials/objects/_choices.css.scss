@@ -136,3 +136,80 @@ $choice-size-desktop: 120px;
     text-align: right !important;
   }
 }
+
+.choice-entry {
+  @extend .media;
+}
+
+.choice-entry__image {
+  @extend .media__img;
+  margin-right: $half-spacing-unit;
+  width: 30px;
+
+  @include media-query(lap-and-up) {
+    width: 50px;
+  }
+}
+
+.choice-entry__body {
+  @extend .media__body;
+  height: 30px;
+
+  @include media-query(lap-and-up) {
+    @include rem(24px);
+    height: 50px;
+  }
+}
+
+.choice-entry__text-container {
+  display: table;
+  height: 100%;
+}
+
+.choice-entry__text {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.choice-entry__occasion--breakfast {
+  .choice-entry__image { 
+    border: 3px solid $brand-secondary;
+
+    @include media-query(lap-and-up) {
+      border-width: 5px;
+    }
+  }
+
+  .choice-entry__text strong {
+    color: $brand-secondary;
+  }
+}
+
+.choice-entry__occasion--lunch {
+  .choice-entry__image { 
+    border: 3px solid $brand-primary;
+
+    @include media-query(lap-and-up) {
+      border-width: 5px;
+    }
+  }
+
+  .choice-entry__text strong {
+    color: $brand-primary;
+  }
+}
+
+.choice-entry__occasion--dinner {
+  .choice-entry__image { 
+    border: 3px solid $brand-highlight;
+
+    @include media-query(lap-and-up) {
+      border-width: 5px;
+    }
+  }
+
+  .choice-entry__text strong {
+    color: $brand-highlight;
+  }
+}
