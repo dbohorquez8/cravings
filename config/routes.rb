@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :meals, :only => [:new]
 
   get "main" => "pages#index"
+  root to: "mood#selection"
 end
