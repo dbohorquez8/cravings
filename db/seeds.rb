@@ -6,6 +6,7 @@ puts "Done."
 
 print "Creating Tags..."
 common_tag_names = %w(
+  fish
   fruits
   vegetables
   legumes
@@ -53,53 +54,91 @@ common_tag_names = %w(
   american
   mexican
   asian
+  breakfast
 )
 common_tag_names.each {|tag_name| Tag.create(:name => tag_name)}
 puts "Done."
 
 print "Creating Choices..."
-common_choices = { "fried chicken" => %w[poultry fast-foods fried honey],
-                   "chicken parmesan" => %w[poultry fried italian cheese],
-                   "chicken marsala" => %w[poultry grilled flour italian],
-                   "meatloaf" => %w[meats baked dressings pork smoked],
-                   "spaghetti and meatballs" => %w[italian pasta meats cheese],
-                   "hot dog" => %w[american fast-foods breads snacks grilled steamed sausage],
-                   "hamburger" => %w[fast-foods meats grilled snacks breads toppings cheese],
-                   "bbq ribs" => %w[meats pork grilled baked toppings],
-                   "roast beef" => %w[meats roasted breads],
-                   "roasted chicken" => %w[poultry roasted snacks grilled toppings],
-                   "chicken wings" => %w[fast-foods poultry fried snacks toppings],
-                   "buffalo wings" => %w[fast-foods poultry fried snacks toppings],
-                   "tacos" => %w[mexican fast-foods meats poultry pork salad],
-                   "quesadillas" => %w[mexican fast-foods cheese grilled],
-                   "burrito" => %w[mexican fast-foods cheese rice grains],
-                   "pizza" => %w[italian fast-foods cheese baked dressings],
-                   "lasagna" => %w[italian cheese meats poultry baked],
-                   "seafood" => %w[seafood snacks],
-                   "lime pie" => %w[pastries candy snacks desserts],
-                   "ice cream" => %w[candy pastries snacks desserts ice],
-                   "cobb salad" => %w[vegetables salads toppings],
-                   "twinkies" => %w[desserts candy snacks],
-                   "jerky" => %w[fast-foods meats snacks roasted smoked],
-                   "fajitas" => %w[mexican poultry meats vegetables salads fast-foods],
-                   "banana split" => %w[desserts candy snacks ice],
-                   "raisins and peanuts" => %w[snacks candy],
-                   "chicken fried steak" => %w[poultry fast-foods snacks fried],
-                   "sushi" => %w[asian seafood snacks fast-foods],
-                   "mac and cheese" => %w[italian american pasta cheese],
-                   "sandwich" => %w[fast-foods breads meats poultry smoked snacks grilled roasted],
-                   "chocolate-chip cookies" => %w[candy desserts snacks],
-                   "nachos" => %w[snacks cheese mexican],
-                   "philly cheese steak" => %w[cheese meats american breads],
-                   "cheeseburger" => %w[cheese meats american breads],
-                   "caesar salad" => %w[salads vegetables breads light],
-                   "greek salad" => %w[salads vegetables breads light],
-                   "potato salad" => %w[salads vegetables breads light],
-                   "fruit salad" => %w[salads vegetables breads light fruits],
-                   "tuna salad" => %w[salads vegetables breads light seafood],
-                   "garden salad" => %w[grains vegetables salads light],
-                   "cobb salad" => %w[grains vegetables salads light],
-                   "milkshake" => %w[desserts candy ice] }
+common_choices = {
+  # Chicken
+  "fried chicken" => %w[poultry fast-foods fried honey],
+  "chicken parmesan" => %w[poultry fried italian cheese],
+  "chicken wings" => %w[fast-foods poultry fried snacks toppings],
+  "buffalo wings" => %w[fast-foods poultry fried snacks toppings],
+  "roasted chicken" => %w[poultry roasted snacks grilled toppings],
+  "chicken fried steak" => %w[poultry fast-foods snacks fried],
+
+  # Meats
+  "meatloaf" => %w[meats baked dressings pork smoked],
+  "roast beef" => %w[meats roasted breads],
+  "ny strip steak" => %w[meats grilled bbq american],
+  "bbq ribs" => %w[meats pork grilled baked toppings],
+  "jerky" => %w[fast-foods meats snacks roasted smoked],
+
+  #Fast Food / Mexican
+  "hot dog" => %w[american fast-foods breads snacks grilled steamed sausage],
+  "hamburger" => %w[fast-foods meats grilled snacks breads toppings cheese],
+  "tacos" => %w[mexican fast-foods meats poultry pork salad],
+  "quesadillas" => %w[mexican fast-foods cheese grilled],
+  "burrito" => %w[mexican fast-foods cheese rice grains],
+  "pizza" => %w[italian fast-foods cheese baked dressings],
+  "fajitas" => %w[mexican poultry meats vegetables salads fast-foods],
+  "philly cheese steak" => %w[cheese meats american breads],
+  "cheeseburger" => %w[cheese meats american breads],
+  "sandwich" => %w[fast-foods breads meats poultry smoked snacks grilled roasted],
+
+  #Pasta
+  "lasagna" => %w[italian cheese meats poultry baked pasta],
+  "spaghetti and meatballs" => %w[italian pasta meats cheese dressings],
+  "mac and cheese" => %w[italian american pasta dressings cheese],
+  "ravioli" => %w[italian pasta cheese dressings meat poultry],
+  "fetuccine" => %w[italian pasta cheese dressings],
+
+  # Fish and Seafood
+  "seafood" => %w[seafood snacks],
+  "salmon" => %w[seafood snacks grilled fish smoked],
+  "tuna" => %w[seafood snacks grilled fish smoked],
+
+  # Desserts
+  "lime pie" => %w[pastries candy snacks desserts],
+  "ice cream" => %w[candy pastries snacks desserts ice],
+  "twinkies" => %w[desserts candy snacks],
+  "milkshake" => %w[desserts candy ice],
+  "banana split" => %w[desserts candy snacks ice],
+  "cheesecake" => %w[desserts candy snacks baked flour cheese],
+
+  # Asian
+  "sushi" => %w[asian seafood snacks fast-foods vegetables],
+  "chow mein" => %w[asian meat poultry pasta dressings vegetables],
+  "pad thai" => %w[asian meat poultry pasta dressings vegetables],
+  "ramen" => %w[asian meat poultry pasta soup vegetables],
+  "fried rice" => %w[asian meat poultry rice vegetables],
+
+  # Quick Snacks
+  "raisins and peanuts" => %w[snacks candy],
+  "nachos" => %w[snacks cheese mexican],
+  "chocolate-chip cookies" => %w[candy desserts snacks],
+
+  # Fruit, Salads and Vegetables
+  "cobb salad" => %w[vegetables salads toppings],
+  "caesar salad" => %w[salads vegetables breads light],
+  "greek salad" => %w[salads vegetables breads light],
+  "potato salad" => %w[salads vegetables breads light],
+  "fruit salad" => %w[salads vegetables breads light fruits],
+  "tuna salad" => %w[salads vegetables breads light seafood],
+  "garden salad" => %w[grains vegetables salads light],
+  "cobb salad" => %w[grains vegetables salads light],
+
+  # Breakfast
+  "pancakes" => %w[breakfast flour honey toppings dressings],
+  "french toast" => %w[breakfast breads flour honey toppings dressings],
+  "croissant" => %w[breakfast breads flour honey toppings dressings cheese],
+  "omelette" => %w[breakfast eggs french toppings],
+  "eggs benedict" => %w[breakfast eggs american toppings],
+  "breakfast cereal" => %w[breakfast american],
+  "oatmeal" => %w[breakfast american],
+}
 
 
 common_choices.each do |name, tag_names|
