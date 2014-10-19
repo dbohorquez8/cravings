@@ -14,7 +14,7 @@ class Mood
                       group("choices.id,choices.name").
                       order("3 desc")
     # Search most matched choice
-    choices.blank? ? shuffle : choices[offset]
+    choices.blank? ? shuffle : choices[offset % choices.length]
   end
 
   private
