@@ -5,4 +5,8 @@ class Choice < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :user_id, message: "already exists" }
   validates_associated :tags
 
+  def picture_url
+    name.gsub(" ", "-")
+  end
+
 end
