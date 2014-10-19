@@ -31,6 +31,7 @@ group :development, :test do
 end
 
 gem 'rails_12factor', group: :production
+gem 'rack-rewrite', group: :production
 
 gem 'quiet_assets', :group => :development
 
