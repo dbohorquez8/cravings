@@ -6,3 +6,5 @@
     %h1.heading--jumbo.push-half--bottom Don't know what to eat?
     %p Let's find out what you are craving for
     = link_to "Let's Go!", mood_selection_path, class: "button button--brand button--huge push--bottom"
+    %div
+      = link_to "Go to my dashboard", user_omniauth_authorize_path(:facebook), class: "text--skip"

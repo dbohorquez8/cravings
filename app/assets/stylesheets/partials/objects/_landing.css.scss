@@ -54,3 +54,7 @@
   padding: 0 5px;
 }
 
+.landing .text--skip {
+  @include rem(18px);
+  color: $gray-lighter;
+}
