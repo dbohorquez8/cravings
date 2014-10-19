@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :authentications
+  has_many :meals
 
   accepts_nested_attributes_for :authentications
 end

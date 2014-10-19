@@ -27,6 +27,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'faker'
+  gem 'quantum_leap'
 end
 
 gem 'rails_12factor', group: :production

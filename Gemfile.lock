@@ -149,6 +149,7 @@ GEM
     pg (0.17.1)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
+    quantum_leap (0.7.0)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -255,6 +256,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook
   pg
+  quantum_leap
   quiet_assets
   rails (= 4.1.6)
   rails_12factor
