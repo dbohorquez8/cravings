@@ -110,6 +110,7 @@ small, .milli {
   }
 }
 
-.text--skip {
-  color: $gray-dark;
-}
+.text--skip { color: $gray-dark; }
+.text--brand { color: $brand-primary; }
+.text--secondary { color: $brand-secondary; }
+.text--highlight { color: $brand-highlight; }

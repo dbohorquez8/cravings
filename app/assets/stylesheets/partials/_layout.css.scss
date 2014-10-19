@@ -24,11 +24,17 @@ html, body {
   }
 }
 
+.logo {
+  color: $brand-primary;
+  font-family: $headings-font-family;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
 .main-logo {
+  @extend .logo;
   @include rem(32px);
   color: white;
-  font-family: $headings-font-family;
-  letter-spacing: -0.03em;
   text-align: center;
 
   @include media-query(lap-and-up) {

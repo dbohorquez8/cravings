@@ -23,6 +23,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon--huge {
+  @include rem(80px);
+
+  @include media-query(lap-and-up) {
+    @include rem(120px);
+  }
+}
+
 .icon--fast-foods:before {
   content: "\e600";
 }
@@ -145,4 +153,10 @@
 }
 .icon--cancel-circle:before {
   content: "\e627";
+}
+.icon--food:before {
+  content: "\e60f";
+}
+.icon--meal:before {
+  content: "\e628";
 }
