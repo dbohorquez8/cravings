@@ -7,7 +7,7 @@
   .choices-container--suggestion
     %button.choice--suggestion.js-select-choice
       .suggestion__image
-        = image_tag "suggestions/#{@suggestion.name}.jpg", alt: @suggestion.name.capitalize
+        = image_tag "suggestions/#{@suggestion.name.gsub(" ", "-")}.jpg", alt: @suggestion.name.capitalize
         .suggestion__name
           = @suggestion.name.capitalize
 
