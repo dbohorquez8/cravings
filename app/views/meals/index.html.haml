@@ -16,3 +16,20 @@
               for 
               %strong= meal.occasion.capitalize
               = "#{time_ago_in_words(meal.created_at)} ago"
+
+- content_for :javascript do
+  = javascript_include_tag "https://www.google.com/jsapi"
+  :javascript
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable(#{@metric_data});
+
+      var options = {
+        title: 'Most frequent selections',
+        pieHole: 0.5,
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+      chart.draw(data, options);
+    }

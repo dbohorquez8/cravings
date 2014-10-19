@@ -5,6 +5,7 @@ class MealsController < ApplicationController
 
   def index
     @meals = current_user.meals.includes(:choice).order("created_at desc")
+    @metric_data = Metrics.most_frequent_tags_data(current_user)
   end
 
   def new
